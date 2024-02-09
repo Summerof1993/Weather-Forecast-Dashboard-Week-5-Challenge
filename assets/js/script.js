@@ -1,5 +1,6 @@
 var apiKey = "e8cd09669a356897141d042d684b0a30"
 
+// Grabbing all classes and saving them in variables
 var cityFormEL = document.querySelector("#city-form");
 var cityNameInputEL = document.querySelector("#city-name");
 var submitEl = document.querySelector("#submit-button");
@@ -8,11 +9,15 @@ var todayContainer = document.querySelector("#today-container");
 var fiveDayContainer = document.querySelector("#five-day-container");
 var fiveDayInnerContainer = document.querySelector("#five-day-inner-container");
 
+// prevents form default and runs functions that will get coordinates of city that was passed in
+// and then will pass in those coordinates to the next functions that will get the weather
 var formSubmitHandler = function (event) {
     event.preventDefault();
 
+    // trim method deletes white space from both sides of a string
     var cityName = cityNameInputEL.value.trim()
-
+    
+    // if a city name is passed in, this will use the getCoordinates function to get the coordinates of the city
     if (cityName) {
         console.log(cityName);
         fiveDayInnerContainer.textContent = "";
@@ -23,6 +28,7 @@ var formSubmitHandler = function (event) {
     }
 }
 
+// This function gets the coornidates of the city name passed in
 var getCoordinates = function (cityName) {
     var coordinatesURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + ",US&limit=1&appid=" + apiKey;
 
@@ -43,6 +49,8 @@ var getCoordinates = function (cityName) {
     )
 }
 
+// This function passes in the latitude and longitude (coordinates) of the passed in city and fetches the weather
+// for that specific city
 var getWeather = function (latitude, longitude) {
     var weatherURL = "https://api.openweathermap.org/data/2.5/forecast?&units=imperial&lat=" + latitude + "&lon=" + longitude + "&appid=" + apiKey;
 
@@ -121,6 +129,7 @@ var getWeather = function (latitude, longitude) {
 
 cityFormEL.addEventListener("submit", formSubmitHandler)
 
+// getEveryNthIndex gets the nth index of the array passed in and returns a new array with those indeces
 var getEveryNthIndex = function (array, nth) {
     var resultArray = [];
     for (var i = 8; i < array.length; i += nth) {
