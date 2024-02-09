@@ -1,4 +1,4 @@
-# Weather-Forecast-Dashboard-Week-5-Challenge
+# Weather-Forecast-Dashboard-Week-6-Challenge
 
 ## Description
 
@@ -12,11 +12,10 @@ No installation is required. User can navigate to Weather Forecast APP website a
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+Navigate to the homepage and type in a city name that is part of the United States. The current weather plus
+the following four day forecast will populate.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-
-![alt text](assets/images/screenshot.png)
+![Image of functional weather application](./assets/images/Screenshot%202024-02-08%20195746.png)
 
 
 ## License
