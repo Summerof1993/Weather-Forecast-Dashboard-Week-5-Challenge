@@ -30,7 +30,7 @@ var formSubmitHandler = function (event) {
 
 // This function gets the coornidates of the city name passed in
 var getCoordinates = function (cityName) {
-    var coordinatesURL = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + ",US&limit=1&appid=" + apiKey;
+    var coordinatesURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + ",US&limit=1&appid=" + apiKey;
 
     fetch(coordinatesURL).then(function (response) {
         if (response.ok) {
@@ -65,7 +65,7 @@ var getWeather = function (latitude, longitude) {
 
                 var icon = data.list[0].weather[0].icon;
                 var iconEL = document.createElement("img");
-                iconEL.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + ".png")
+                iconEL.setAttribute("src", "https://openweathermap.org/img/wn/" + icon + ".png")
                 todayContainer.append(iconEL);
 
                 var todayTemp = data.list[0].main.temp;
@@ -100,7 +100,7 @@ var getWeather = function (latitude, longitude) {
 
                     var icon = newArray[i].weather[0].icon;
                     var iconEL = document.createElement("img");
-                    iconEL.setAttribute("src", "http://openweathermap.org/img/wn/" + icon + ".png")
+                    iconEL.setAttribute("src", "https://openweathermap.org/img/wn/" + icon + ".png")
                     div.append(iconEL);
 
                     var todayTemp = newArray[i].main.temp;
